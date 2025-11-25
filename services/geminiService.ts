@@ -64,7 +64,7 @@ export const generateChatResponse = async (
   includeActions: boolean
 ): Promise<string> => {
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
     
     // We create a new chat instance per request to ensure the System Instruction 
     // captures the *current* slider values exactly. 
@@ -97,7 +97,7 @@ export const generateSandboxResponse = async (
   language: Language
 ): Promise<string> => {
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
     // Sandbox always includes actions for better analysis
     const systemInstruction = generateSystemInstruction(profile, language, true);
 
